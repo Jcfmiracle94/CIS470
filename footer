@@ -1,0 +1,3 @@
+<footer>
+<p>| Williams Specialty Company © 2012-<?php echo date("Y") ?> |</p>
+</footer>
