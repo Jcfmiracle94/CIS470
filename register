@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Gaming Products Site</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<?php include("includes/header.inc"); ?>
+
+<?php include("includes/nav.inc"); ?>
+
+<div id="wrapper">
+
+
+<?php include("includes/aside.inc"); ?>
+
+
+	<section>
+		<div id="rightColumn" text-align: center>
+ <h2>Check In</h2>
+ 
+      <p style="text-align:left">This form will grant us permission to fix you equipment
+	  and holds us reliable for any damages while it is in our care but when returned to
+	  the owner we can no longer be held responsible for the equipment.<br><br>
+	  Please file our the form below.</p>
+		<form action="subtxt_form.asp">
+		<fieldset id="Radio">
+		
+		
+		Enter First Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Enter Last Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Enter Your Address<br>
+		<textarea name="address" cols="60" rows="1"> </textarea><br><br>
+		
+		Enter Your City<br>
+		<textarea name="city" cols="60" rows="1"> </textarea><br><br>
+			
+		Please Enter State<br>
+		<textarea name="state" cols="15" rows="1"> </textarea><br><br>
+
+		Please Enter Zip<br>
+		<textarea name="zip" cols="5" rows="1"> </textarea><br><br>
+			
+		Enter Email<br>
+		<input type="text" id="email" name="float" maxlength="50" /><br><br>
+
+		Enter Password<br>
+		<input type="text" id="password" name="float" maxlength="50" /><br><br>
+		
+		Enter re-enter password<br>
+		<input type="text" id="password" name="float" maxlength="50" /><br><br>
+			
+				<fieldset id="button" align="center">
+				<button type="button">Submit</button>
+				<button type="button">Reset</button>
+				
+				</fieldset>
+		
+		
+		</form>
+
+
+	</section>
+
+</div>
+
+<?php include("includes/footer.inc"); ?>
+
+</body>
+</html>
+
