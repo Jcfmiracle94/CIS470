@@ -1,0 +1,1 @@
+Directory for all images related to the website. Each product image is named after product_id, e.g. '102.png'.

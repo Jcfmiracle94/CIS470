@@ -1,0 +1,1 @@
+Directory for the Catalog Module containing controller and page files.

@@ -1,9 +1,7 @@
 <?php
 function get_products_by_type($media_type) {
 	global $db;
-	$query = '
-		SELECT *
-		FROM product';
+	$query = 'CALL GetAllProducts(@:media_type)';
 	try {
 		$statement = $db->prepare($query);
 		$statement->bindValue(':media_type', $media_type);
@@ -18,14 +16,11 @@ function get_products_by_type($media_type) {
 }
 
 function get_product($product_id) {
-    global $db;
-	$query = '
-		SELECT *
-		FROM product
-		WHERE product_id = :product_id';
+	global $db;
+	$query = 'CALL GetProduct(@:productid)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':product_id', $product_id);
+        $statement->bindValue(':productid', $product_id);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();
@@ -36,23 +31,18 @@ function get_product($product_id) {
     }
 }
 
-function add_product($media_type, $price, $description, $size, $stock_available, $category) {
+function add_product($media_type, $price, $description, $size, $stock_available, $category, $inactive) {
 	global $db;
-	// WORK ON THIS ONCE DAVID GETS YOU TABLES and SPROCS
-    $query = 'INSERT INTO products
-                 (categoryID, productCode, productName, description, listPrice,
-                  discountPercent, dateAdded)
-              VALUES
-                 (:category_id, :code, :name, :description, :price,
-                  :discount_percent, NOW())';
+	$query = 'CALL AddProduct(@:media_type, @:price, @:description, @:size, @:stock_available, @:category, @:inactive)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':category_id', $category_id);
-        $statement->bindValue(':code', $code);
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':description', $description);
+        $statement->bindValue(':media_type', $media_type);
         $statement->bindValue(':price', $price);
-        $statement->bindValue(':discount_percent', $discount_percent);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':size', $size);
+        $statement->bindValue(':stock_available', $stock_available);
+        $statement->bindValue(':category', $category);
+		$statement->bindValue(':inactive', $inactive);
         $statement->execute();
         $statement->closeCursor();
 
@@ -67,7 +57,7 @@ function add_product($media_type, $price, $description, $size, $stock_available,
 
 function update_product($product_id, $media_type, $price, $description, $size, $stock_available, $category, $inactive) {
     global $db;
-	// WORK ON THIS ONCE DAVID GETS YOU TABLES AND SPROCS
+	$query = 'CALL UpdateProduct(@:productid, @:media_type, @:price, @:description, @:size, @:stock_available, @:category, @:inactive)';
     $query = '
         UPDATE Products
         SET productName = :name,
@@ -79,13 +69,14 @@ function update_product($product_id, $media_type, $price, $description, $size, $
         WHERE productID = :product_id';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':code', $code);
-        $statement->bindValue(':desc', $desc);
+		$statement->bindValue(':productid', $product_id);
+        $statement->bindValue(':media_type', $media_type);
         $statement->bindValue(':price', $price);
-        $statement->bindValue(':discount', $discount);
-        $statement->bindValue(':category_id', $category_id);
-        $statement->bindValue(':product_id', $product_id);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':size', $size);
+        $statement->bindValue(':stock_available', $stock_available);
+        $statement->bindValue(':category', $category);
+		$statement->bindValue(':inactive', $inactive);
         $statement->execute();
         $statement->closeCursor();
     } catch (PDOException $e) {
@@ -96,10 +87,10 @@ function update_product($product_id, $media_type, $price, $description, $size, $
 
 function delete_product($product_id) {
     global $db;
-    $query = 'DELETE FROM product WHERE product_id = :product_id';
+	$query = 'CALL DeleteProduct(@:productid)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':product_id', $product_id);
+        $statement->bindValue(':productid', $product_id);
         $statement->execute();
         $statement->closeCursor();
     } catch (PDOException $e) {
