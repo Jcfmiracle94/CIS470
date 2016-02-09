@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Gaming Products Site</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<?php include("includes/header.inc"); ?>
+
+<?php include("includes/nav.inc"); ?>
+
+<div id="wrapper">
+
+
+<?php include("includes/aside.inc"); ?>
+
+
+	<section>
+		<div id="rightColumn" text-align: center>
+ <h2>Payment Information</h2>
+ 
+    
+		<form action="subtxt_form.asp">
+		<fieldset id="Radio">
+		
+		<input type="radio" name="shipping" value="free"/> Standard(Free)
+		<input type="radio" name="shipping" value="7.99"/> Express(7.99)</br></br>
+		
+		Card Type</br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Card Number<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Security Code<br>
+		<textarea name="address" cols="50" rows="1"> </textarea><br><br>
+		
+		Expiration<br>
+		<textarea name="city" cols="60" rows="1"> </textarea><br><br>
+		
+		
+			
+				<fieldset id="button" align="center">
+				<button type="button">Continue</button>
+				
+				
+				</fieldset>
+		
+		
+		</form>
+
+
+	</section>
+
+</div>
+
+<?php include("includes/footer.inc"); ?>
+
+</body>
+</html>
