@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Gaming Products Site</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<?php include("includes/header.inc"); ?>
+
+<?php include("includes/nav.inc"); ?>
+
+<div id="wrapper">
+
+
+<?php include("includes/aside.inc"); ?>
+
+
+	<section>
+		<div id="rightColumn" text-align: center>
+ <h2>Billing Address</h2>
+ 
+    
+		<form action="subtxt_form.asp">
+		<fieldset id="Radio">
+		
+		First Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Last Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Enter Your Address<br>
+		<textarea name="address" cols="60" rows="1"> </textarea><br><br>
+		
+		Enter Your City<br>
+		<textarea name="city" cols="60" rows="1"> </textarea><br><br>
+		
+		Please Enter State<br>
+		<textarea name="state" cols="15" rows="1"> </textarea><br><br>
+
+		Please Enter Zip<br>
+		<textarea name="zip" cols="5" rows="1"> </textarea><br><br>
+			
+		<input type="checkbox" value="text">Shipping address same as billing address<br><br>
+		
+		Shipping Method</br>
+		<input type="radio" name="shipping" value="free"/> Standard(Free)
+		<input type="radio" name="shipping" value="7.99"/> Express($7.99)
+		
+		
+			
+				<fieldset id="button" align="center">
+				<button type="button">Continue</button>
+				
+				
+				</fieldset>
+		
+		
+		</form>
+
+
+	</section>
+
+</div>
+
+<?php include("includes/footer.inc"); ?>
+
+</body>
+</html>
