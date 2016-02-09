@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Gaming Products Site</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<?php include("includes/header.inc"); ?>
+
+<?php include("includes/nav.inc"); ?>
+
+<div id="wrapper">
+
+
+<?php include("includes/aside.inc"); ?>
+
+
+	<section>
+		<div id="rightColumn" text-align: center>
+ <h2>Update User</h2>
+ 
+    
+		<form action="subtxt_form.asp">
+		<fieldset id="Radio">
+		
+		Customer ID<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		First Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Last Name<br>
+		<input type="text" id="Name" name="float" maxlength="50" /><br><br>
+		
+		Role<br>
+		<textarea name="role" cols="60" rows="1"> </textarea><br><br>
+			
+		Email<br>
+		<input type="text" id="email" name="float" maxlength="50" /><br><br>
+			
+				<fieldset id="button" align="center">
+				<button type="button">Submit</button>
+				<button type="button">Reset</button>
+				
+				</fieldset>
+		
+		
+		</form>
+
+
+	</section>
+
+</div>
+
+<?php include("includes/footer.inc"); ?>
+
+</body>
+</html>
